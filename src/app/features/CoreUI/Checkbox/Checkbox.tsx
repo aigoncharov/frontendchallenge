@@ -63,6 +63,9 @@ const Checkbox: FC<CheckboxProps> = forwardRef((props, externalReference) => {
   const forceUpdate = useForceUpdate();
 
   const onClickWrapped = useCallback((event: MouseEvent<HTMLInputElement>) => {
+    // When user clicks on the checkbox or presses space it updates the state of the child `input`,
+    // not the state of this component. So no re-render.
+    // This force update forces the re-render once the input state changes.
     forceUpdate();
     onClick?.(event);
   }, [onClick, forceUpdate]);
@@ -83,6 +86,7 @@ const Checkbox: FC<CheckboxProps> = forwardRef((props, externalReference) => {
         disabled={disabled}
         {...otherProps}
       />
+      {/* TODO: Consider styling checkbox with CSS. This would allow us to remove `forceUpdate` */}
       <CheckboxIcon
         hasHover={!disabled && (hasHover || hasFocus)}
         error={!!error}
