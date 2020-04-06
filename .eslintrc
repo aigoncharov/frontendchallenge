@@ -61,7 +61,8 @@
           "useCombinedRefs": true,
           "targetRef": true,
           "refs": true,
-          "ref": true
+          "ref": true,
+          "Props": true
         }
       }
     ],

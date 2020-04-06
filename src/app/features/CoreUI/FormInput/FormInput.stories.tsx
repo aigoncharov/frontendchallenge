@@ -9,24 +9,27 @@ export default {
   title: 'Form Input',
 };
 
+const name = 'Yoda';
+
 export const normal = () => (
-  <FormInput label='normal' onChange={action('changed')} />
+  <FormInput name={name} label='normal' onChange={action('changed')} />
 );
 
 export const fullWidth = () => (
-  <FormInput label='Full Width' fillWidth onChange={action('changed')} />
+  <FormInput name={name} label='Full Width' fillWidth onChange={action('changed')} />
 );
 
 export const withPlaceholder = () => (
-  <FormInput label='With Placeholder' placeholder='FormInput...' onChange={action('changed')} />
+  <FormInput name={name} label='With Placeholder' placeholder='FormInput...' onChange={action('changed')} />
 );
 
 export const error = () => (
-  <FormInput label='Error' value='FormInput...' error='Error Label' onChange={action('changed')} />
+  <FormInput name={name} label='Error' value='FormInput...' error='Error Label' onChange={action('changed')} />
 );
 
 export const disabled = () => (
   <FormInput
+    name={name}
     label='Disabled Text'
     value='Disabled Text'
     disabled

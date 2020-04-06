@@ -21,7 +21,7 @@ const useHover = <T extends Element | any>(ref: RefObject<T>): boolean => {
         };
       }
     },
-    [ref],
+    [ref.current],
   );
 
   return value;

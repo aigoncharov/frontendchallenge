@@ -12,10 +12,12 @@ interface Props {
    */
   type?: 'text' | 'number' | 'email' | 'password';
 
+  // Shouldn't it be required?
+  // https://react-hook-form.com/get-started#Registerfields
   /**
    * Identifier for form submit
    */
-  name?: string;
+  name: string;
 
   /**
    * Label to show above input
@@ -60,6 +62,7 @@ interface Props {
 
 const FormInput: FC<Props> = forwardRef((props, ref) => {
   const { fillWidth, disabled, label, error, ...otherProps } = props;
+
 
   const errorLabel = error && (
     <div className={styles.errorLabel}>

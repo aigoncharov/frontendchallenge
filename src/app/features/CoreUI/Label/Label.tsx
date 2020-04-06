@@ -11,6 +11,7 @@ interface Props {
 
   /**
    * Position of label relative to children (above child, to the right of child, ...)
+   * Default: 'above'
    */
   position?: 'above' | 'right';
 

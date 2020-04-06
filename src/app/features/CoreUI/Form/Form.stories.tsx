@@ -8,6 +8,7 @@ import TwoColumnGrid from '../TwoColumnGrid/TwoColumnGrid';
 import Label from '../Label/Label';
 import Button from '../Button/Button';
 import Toggle from '../Toggle/Toggle';
+import FormCheckbox from '../FormCheckbox/FormCheckbox';
 
 export default { title: 'Form' };
 
@@ -20,6 +21,7 @@ interface FormData {
   marketing2: boolean;
   weeklytips: boolean;
   newfeatures: boolean;
+  agreement: boolean;
 }
 
 interface Props {
@@ -27,7 +29,7 @@ interface Props {
 }
 
 const Form: FC<Props> = ({ onSubmit }) => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm<FormData>();
   const mapSubmitHandler = useCallback((data) => onSubmit(data), [onSubmit]);
 
   return (
@@ -67,6 +69,12 @@ const Form: FC<Props> = ({ onSubmit }) => {
           type='email'
           ref={register({ required: true })}
           error={errors.email && 'E-Mail is required.'}
+        />
+        <FormCheckbox
+          label='Accept user agreement'
+          name='agreement'
+          ref={register({ required: true })}
+          error={errors.agreement && 'Please, read and accept the agreement.'}
         />
         <Toggle
           name='newfeatures'

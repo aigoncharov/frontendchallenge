@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import { useRef, useEffect, Ref } from 'react';
 
 const useCombinedRefs = <T>(...refs: (Ref<T> | null)[]) => {
@@ -9,12 +8,11 @@ const useCombinedRefs = <T>(...refs: (Ref<T> | null)[]) => {
       if (!ref) return;
 
       if (typeof ref === 'function') {
-        // @ts-ignore
         ref(targetRef.current);
       } else {
-        // @ts-ignore
+        // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/31065#issuecomment-547327595
         // eslint-disable-next-line no-param-reassign
-        ref.current = targetRef.current;
+        (ref as React.MutableRefObject<T | null>).current = targetRef.current;
       }
     });
   }, [refs]);

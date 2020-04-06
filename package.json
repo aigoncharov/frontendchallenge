@@ -52,7 +52,8 @@
     "react-hook-form": "^4.6.2",
     "react-scripts": "^3.3.0",
     "ts-key-enum": "^2.0.2",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "use-force-update": "^1.0.7"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.4",
@@ -85,6 +86,7 @@
     "stylelint": "^13.0.0",
     "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-standard": "^19.0.0",
+    "type-zoo": "^3.4.1",
     "typed-scss-modules": "^1.1.0"
   }
 }
